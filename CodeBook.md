@@ -1,5 +1,15 @@
 ## Getting and Cleaning Data Course Project Code Book
 
+## Introduction
+
+The data used in this project was collected from the accelerometers from the Samsung Galaxy S smartphone. A group of 30 volunteers (subjects) performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone on the waist.
+
+The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ, which were subsequently processed to generate 561 different features related to these signals.
+
+The obtained dataset was randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data.
+
+A full description is available at the site where the data was obtained: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones 
+
 ## Raw Data
 
 The raw data has to be put in a folder called "data" inside the working directory. The necessary
@@ -14,10 +24,40 @@ files are the following:
 * y_test.txt: The IDs of the activities for each observation of the test set.
 * y_train.txt: The IDs of the activities for each observation of the training set.
 
+## Variables
+
+#### Subject
+
+The subject_test.txt and subject_train.txt contain a single variable ranging from 1 to 30 to identify the subject associated to the measurements.
+
+#### Activity
+
+The y_train.txt and y_test.txt files contain the IDs of the activities performed by the subject, ranging from 1 to 6. The activity_labels.txt file contains descriptive names for the activities and it will be useful to generate a legible tidy data set:
+
+* 1 WALKING
+* 2 WALKING_UPSTAIRS
+* 3 WALKING_DOWNSTAIRS
+* 4 SITTING
+* 5 STANDING
+* 6 LAYING
+
+#### Features
+
+The X_test.txt and X_train.txt files contain the 561 different features obtained and derived from the smartphone gyroscope and accelerometer measurements. The names of the features are listed in the features.txt files:
+
+* 1 tBodyAcc-mean()-X
+* 2 tBodyAcc-mean()-Y
+* 3 tBodyAcc-mean()-Z
+* 4 tBodyAcc-std()-X
+* 5 tBodyAcc-std()-Y
+...
+
+A full description of the variables can be found on the features_info.txt file in the original zip containing the raw data.
+
+
 ## Reading the data
 
-We use the read.csv function to load the raw data into data frames. Note that we specify the rows and use
-additional parameters to make sure the X_train and X_test data is stored correctly.
+We use the read.csv function to load the raw data into data frames. Note that we specify the rows and use additional parameters to make sure the X_train and X_test data is stored correctly.
 
 ```
 subject_train <- read.csv("./data/subject_train.txt", header=FALSE)
